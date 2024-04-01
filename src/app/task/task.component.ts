@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { NgIf, LowerCasePipe } from '@angular/common';
 import { Task } from '../task';
 
@@ -10,5 +10,5 @@ import { Task } from '../task';
   styleUrl: './task.component.css',
 })
 export class TaskComponent {
-  task?: Task = undefined;
+  @Input() task?: Task = undefined;
 }

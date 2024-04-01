@@ -51,7 +51,14 @@
     </div>
     <div class="divider" role="separator" aria-label="Divider"></div>
     <div class="side center-side">
-      <app-task />
+      <app-task
+        [task]="{
+          id: '1',
+          title: 'title test',
+          details: 'test description',
+          completed: false
+        }"
+      />
     </div>
     <div class="divider" role="separator" aria-label="Divider"></div>
     <div class="side right-side">

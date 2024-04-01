@@ -1,3 +1,8 @@
 .no-task p {
     text-align: center;
 }
+
+#completed {
+    position: relative;
+    top: 2px;
+}

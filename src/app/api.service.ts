@@ -5,9 +5,35 @@ import { Task } from './task';
   providedIn: 'root',
 })
 export class ApiService {
+  private tasksNumber: number = 0;
+  private completedTasksNumber: number = 0;
+  private notCompletedTasksNumber: number = 0;
+
   constructor() {
-    const tasks = localStorage.getItem('tasks');
-    if (!tasks) localStorage.setItem('tasks', JSON.stringify([]));
+    const tasksString = localStorage.getItem('tasks');
+    if (!tasksString) {
+      localStorage.setItem('tasks', JSON.stringify([]));
+    } else {
+      const tasks = JSON.parse(
+        localStorage.getItem('tasks') || '[]'
+      ) as Array<Task>;
+      this.tasksNumber = tasks.length;
+      this.completedTasksNumber = tasks.filter((el) => el.completed).length;
+      this.notCompletedTasksNumber = tasks.filter((el) => !el.completed).length;
+    }
+  }
+
+  getStatistics(): {
+    tasksNumber: number;
+    completedTasksNumber: number;
+    notCompletedTasksNumber: number;
+  } {
+    this.getTasks();
+    return {
+      tasksNumber: this.tasksNumber,
+      completedTasksNumber: this.completedTasksNumber,
+      notCompletedTasksNumber: this.notCompletedTasksNumber,
+    };
   }
 
   getTask(id: number): Task | undefined {
@@ -17,7 +43,13 @@ export class ApiService {
   }
 
   getTasks(): Array<Task> {
-    return JSON.parse(localStorage.getItem('tasks') || '[]');
+    const tasks = JSON.parse(
+      localStorage.getItem('tasks') || '[]'
+    ) as Array<Task>;
+    this.tasksNumber = tasks.length;
+    this.completedTasksNumber = tasks.filter((el) => el.completed).length;
+    this.notCompletedTasksNumber = tasks.filter((el) => !el.completed).length;
+    return tasks;
   }
 
   getNotCompletedTasks(): Array<Task> {

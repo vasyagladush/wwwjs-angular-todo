@@ -1,0 +1,8 @@
+<div class="tasks-list">
+  @for (task of notCompletedTasks; track task.id) {
+  <a [routerLink]="'/tasks/' + task.id">{{ task.title | lowercase }}</a>
+  <br>
+  } @empty {
+  <p>no todos...</p>
+  }
+</div>

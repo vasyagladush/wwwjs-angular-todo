@@ -1,7 +1,14 @@
 <div *ngIf="task as task; else noTaskBlock">
   <h2>{{ task.title | lowercase }}</h2>
-  <p>{{ task.details || '-'}}</p>
-  <p>Completed: {{ task.completed }}</p>
+  <p>{{ task.details || "-" }}</p>
+  <label for="completed">Completed:</label>
+  <input
+    id="completed"
+    type="checkbox"
+    [disabled]="task.completed"
+    [checked]="task.completed"
+    (change)="complete(task)"
+  />
 </div>
 <ng-template #noTaskBlock
   ><div class="no-task"><p>...no task found...</p></div></ng-template

@@ -6,6 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { ApiService } from '../api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-task',
@@ -15,7 +16,7 @@ import { ApiService } from '../api.service';
   styleUrl: './create-task.component.css',
 })
 export class CreateTaskComponent {
-  constructor(private apiService: ApiService) {}
+  constructor(private apiService: ApiService, private router: Router) {}
 
   taskForm = new FormGroup({
     title: new FormControl('', Validators.required),
@@ -27,5 +28,6 @@ export class CreateTaskComponent {
       title: this.taskForm.value.title!,
       details: this.taskForm.value.details ?? '',
     });
+    this.router.navigate(['/tasks']);
   }
 }

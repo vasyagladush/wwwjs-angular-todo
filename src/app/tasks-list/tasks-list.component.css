@@ -1,0 +1,6 @@
+.tasks-list {
+    display: block;
+}
+.tasks-list a {
+    margin-bottom: 10px;
+}

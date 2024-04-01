@@ -1,0 +1,8 @@
+<div *ngIf="task as task; else noTaskBlock">
+  <h2>{{ task.title | lowercase }}</h2>
+  <p>{{ task.details }}</p>
+  <p>Completed: {{ task.completed }}</p>
+</div>
+<ng-template #noTaskBlock
+  ><div class="no-task"><p>...no task selected...</p></div></ng-template
+>

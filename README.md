@@ -34,3 +34,5 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 - `ng generate component task`
 - `ng generate interface task`
 - ngIf directive
+- `ng generate service InMemoryData`
+- `npm install angular-in-memory-web-api --save`

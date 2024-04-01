@@ -4,6 +4,9 @@ import { AppComponent } from './app.component';
 import { MainViewComponent } from './main-view/main-view.component';
 
 export const routes: Routes = [
-  { path: '', component: MainViewComponent },
+  { path: '', redirectTo: '/tasks', pathMatch: 'full' },
+  { path: 'tasks', component: MainViewComponent },
+//   { path: 'tasks/create', component: CreateTaskComponent },
+  { path: 'tasks/:taskId', component: MainViewComponent },
   { path: '**', component: PageNotFoundComponentComponent },
 ];

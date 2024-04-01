@@ -7,8 +7,6 @@ import { TaskComponent } from './task/task.component';
   standalone: true,
   imports: [RouterOutlet, TaskComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
 })
-export class AppComponent {
-  title = 'todo';
-}
+export class AppComponent {}
